@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body
+    {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    button
+
+    {
+        margin-top: 10%;
+    }
+</style>
+<body>
+   
+   <p> CLICK THIS BUTTON TO SARE YOUR LOCATION</p>
+        <button>getlocation</button>
+       <H1></H1>
+<script>
+     const btn=document.querySelector("button");
+    function gotlocation(position)
+    {
+        let h=document.querySelector("h1")
+        console.log(position)
+        let lat=position.coords.latitude;
+        let lang=position.coords.longitude;
+h.innerHTML=`lat ${lat}<br> and <br>long ${lang}`
+    
+    
+    }
+    function faliedtogetlocation()
+    {
+        console.log("user not allowed to get the location")
+    }
+    btn.addEventListener("click", async()=>
+    {
+        navigator.geolocation.getCurrentPosition(gotlocation,faliedtogetlocation)
+    })
+</script>
+   
+  
+</body>
+</html>
